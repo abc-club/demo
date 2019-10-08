@@ -19,6 +19,7 @@
         iframe = document.getElementById('iframe')
     div.innerHTML = url;
     window.addEventListener('message', function(event) {
+      if (!event.data.url) return
       div.innerHTML = event.data.url;
     }, false)
 
