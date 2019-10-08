@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <iframe id='iframe' src='./iframe.html'></iframe>
+    <div id='url'></div>
+    <button id='back' onclick='back()'>back</button>
+    <button id='forward' onclick='forward()'>forward</button>
+</div>
+  <script>
+    var url = './iframe.html'
+    var div = document.getElementById('url'),
+        iframe = document.getElementById('iframe')
+    div.innerHTML = url;
+    window.addEventListener('message', function(event) {
+      div.innerHTML = event.data.url;
+    }, false)
+
+
+    function back() {
+      iframe.contentWindow.postMessage('back', '*');
+    }
+
+    function forward() {
+      iframe.contentWindow.postMessage('forward', '*');
+    }
+
+  </script>
+</body>
+</html>
