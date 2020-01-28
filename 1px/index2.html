@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- initial-scale优先级高于width -->
+  <meta name="viewport" content="initial-scale=0.5">
+  <!-- <meta name="viewport" content="width=750"> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .div {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+    }
+    .border-1px::after{
+      content: '';
+      position: absolute;
+      box-sizing: border-box;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid #000;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      -webkit-transform-origin: top left;
+    }
+    .div2 {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="div border-1px"></div>
+  <br>
+  <div class="div2"></div>
+</body>
+</html>
