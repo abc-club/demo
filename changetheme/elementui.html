@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link id="css" rel="stylesheet" href="./default.css">
+  <style></style>
+</head>
+<body>
+  <div>aaa</div>
+  <button onclick="changeTheme('red')">red</button>
+  <button onclick="changeTheme('black')">black</button>
+  <script>
+    
+
+    function changeTheme(theme) {
+      let cssText
+      fetch('./default.css')
+      .then(res => res.text())
+      .then(source => {
+        cssText = source.replace(new RegExp('#0f0', 'g'), theme)
+        const style = document.createElement('style')
+          style.innerText = cssText
+          document.head.appendChild(style)
+      })
+
+    }
+  </script>
+</body>
+</html>

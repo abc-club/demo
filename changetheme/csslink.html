@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="default.css" rel="stylesheet" type="text/css" title="默认">
+  <link href="red.css" rel="alternate stylesheet" type="text/css" title="红色">
+  <link href="black.css" rel="alternate stylesheet" type="text/css" title="黑色">
+</head>
+<body>
+  <div>aaa</div>
+  <input id="default" type="radio" name="skin" value="default.css" checked>
+  <input id="red" type="radio" name="skin" value="red.css">
+  <input id="black" type="radio" name="skin" value="black.css">
+  <input type="color" value='#ff0000'>
+  <script>
+    var eleLinks = document.querySelectorAll('link[title]');
+    var eleRadios = document.querySelectorAll('[type="radio"]');
+    [].slice.call(eleRadios).forEach(function (radio) {
+        radio.addEventListener('click', function () {
+            var value = this.value;
+            [].slice.call(eleLinks).forEach(function (link) {
+                link.disabled = true;
+                if (link.getAttribute('href') == value) {
+                    // 该样式CSS文件生效
+                    link.disabled = false;
+                }
+            });
+        });
+    });
+  </script>
+</body>
+</html>

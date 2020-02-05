@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet/less" type="text/css" href="less.less" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+</head>
+<body>
+  <div class='test-block'>aaa</div>
+  <button onclick='changeColor("#f00")'>red</button>
+  <button onclick='changeColor("#0f0")'>green</button>
+  <script>
+    function changeColor(color) {
+        window.less
+          .modifyVars({  // 调用 `less.modifyVars` 方法来改变变量值
+              '@primary-color': color,
+              '@bg-color': '#2f54eb',
+          });
+    }
+
+  </script>
+</body>
+</html>
