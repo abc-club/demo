@@ -19,21 +19,32 @@
     var container = document.getElementById('container')
     container.addEventListener('touchstart', (e)=> {
       console.log('touchstart')
-      return false
+      e.preventDefault()
+      // return false
     })
     container.addEventListener('touchend', (e)=> {
       console.log('touchend')
-      return false
+      e.preventDefault()
+      // return false
     })
     container.addEventListener('click', (e)=> {
       console.log('click')
-      return true
+      e.preventDefault()
+      // return true
     })
     container.addEventListener('click', (e)=> {
       console.log('click2')
-      return false
+      e.preventDefault()
+      // return false
     })
-
+    var myEvent = new CustomEvent('click', { 
+      detail: { title: 'This is title!'},
+  });
+  // window.addEventListener('event_name', function(event){
+  //     console.log('得到标题为：', event.detail.title);
+  // });
+  // 随后在对应的元素上触发该事件
+  container.dispatchEvent(myEvent);
   </script>
 </body>
 </html>
