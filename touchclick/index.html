@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      width: 300px;
+      height: 300px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    // return false或者return true没有什么用处
+    var container = document.getElementById('container')
+    container.addEventListener('touchstart', (e)=> {
+      console.log('touchstart')
+      return false
+    })
+    container.addEventListener('touchend', (e)=> {
+      console.log('touchend')
+      return false
+    })
+    container.addEventListener('click', (e)=> {
+      console.log('click')
+      return true
+    })
+    container.addEventListener('click', (e)=> {
+      console.log('click2')
+      return false
+    })
+
+  </script>
+</body>
+</html>
