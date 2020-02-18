@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css动画</title>
+  <style>
+    #app{
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-color: #f00;
+      animation: move 2s;
+    }
+    @keyframes move {
+      from { left: 0px; top: 0px;}
+      to { left: 300px; top: 300px;}
+
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+</body>
+</html>
