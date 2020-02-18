@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      border-left: 300px solid #f00;
+      background-color: aqua;
+    }
+    .box::after{
+      content: '';
+      display: block;
+      clear:both;
+
+    }
+    .nav{
+      float: left;
+      width: 300px;
+      margin-left: -300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="nav">
+      <ul>
+        <li>xxx</li>
+        <li>xxx</li>
+      </ul>
+    </div>
+    <section>
+      content
+    </section>
+  </div>
+</body>
+</html>

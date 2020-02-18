@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .md-warp{
+        width: 400px;
+        height: 300px;
+        max-width: 100%;
+        border: 1px solid #000;
+    }
+    .md-main{
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: #f00;
+    }
+    .md-warp{
+    font-size: 0;
+  }
+.md-warp:after{
+  content:'';
+  display:inline-block;
+  width: 0;
+  height:100%;
+  vertical-align:middle;
+}
+
+.md-main{
+  display:inline-block;
+  vertical-align:middle;
+  font-size: 14px;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- 实现水平垂直居中 -->
+  <div class="md-warp">
+    <span class="md-main">aaaa</span>
+  </div>
+</body>
+</html>
