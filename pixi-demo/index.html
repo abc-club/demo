@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{padding:0;margin:0}
+     
+  </style>
+  <script src="https://cdn.bootcss.com/pixi.js/5.1.5/pixi.min.js"></script>
+</head>
+<body>
+  <script>
+    //Aliases
+    let Application = PIXI.Application,
+        loader = PIXI.loader,
+        resources = PIXI.loader.resources,
+        Sprite = PIXI.Sprite,
+        TextureCache = PIXI.utils.TextureCache,
+        kobe
+   
+    //Create a Pixi Application
+    let app = new Application({
+        width: 200,
+        height: 500,                       
+        antialias: true,
+        transparent: false,
+        resolution: 1
+      }
+    );
+
+    //Add the canvas that Pixi automatically created for you to the HTML document
+    document.body.appendChild(app.view);
+
+    //load an image and run the `setup` function when it's done
+    // loader
+    //   .add("images/cat.png")
+    //   .load(setup);
+
+    // //This `setup` function will run when the image has loaded
+    // function setup() {
+
+    //   //Create the cat sprite
+    //   let cat = new Sprite(resources["images/cat.png"].texture);
+    //   //Change the sprite's position
+    //   // cat.x = 96;
+    //   // cat.y = 96;
+    //   cat.position.set(96,96)
+    //   //Add the cat to the stage
+    //   app.stage.addChild(cat);
+    // }
+
+    // loader
+    //   .add("images/kobe-ball.png")
+    //   .load(setupKobe);
+    
+    // function setupKobe() {
+    //   let texture = resources["images/kobe-ball.png"].texture
+    //   texture.frame = new PIXI.Rectangle(0,0,200,500)
+    //   let kobe = new Sprite(texture)
+    //   app.stage.addChild(kobe);
+
+    // }
+
+    loader
+      .add("images/kobe-ball.json")
+      .load(setupKobe);
+    
+    function setupKobe() {
+      let texture = TextureCache['kobe0019.png']
+      kobe = new Sprite(texture)
+      kobe.vx = 1
+      kobe.vy = 1
+      app.stage.addChild(kobe);
+
+      app.ticker.add(delta => gameLoop(delta));
+    }
+
+    function gameLoop(delta){
+      //Apply the velocity values to the cat's
+      //position to make it move
+      kobe.x += kobe.vx;
+      kobe.y += kobe.vy;
+      }
+  </script>
+</body>
+</html>
