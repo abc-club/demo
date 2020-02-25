@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .add { border: 2px dashed #ccc;
+      width: 200px;
+      height: 200px;
+      position: relative;
+     }
+     .add:before{
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 10px;
+        margin: 95px auto;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+     }
+     .add:after{
+      left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 100px;
+        margin: auto 95px;
+     }
+      .add:before, .add:after { 
+       background: #ccc; } /* hover变色 */ .add:hover { border-color: #06C; } .add:hover:before, .add:hover:after { background: #06C; }
+  </style>
+</head>
+<body>
+  <!-- <div class='add'>
+  </div>
+  <style>
+    .bg{
+      background: url('1.png') no-repeat;
+      background-position: 0% 0%;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <div class='bg'></div>
+  <section>
+    <style>
+      .line-height{
+        line-height: 300px;
+        background-color: bisque;
+      }
+    </style>
+    <div class='line-height'>
+      adbdfjhgqlpox
+      <span>adbdfjhgqlpox</span>
+      <img src="./1.png" alt="" height="100">
+      <span>111</span>
+      <span>adbdfjhgqlpox</span>
+    </div>
+  </section> -->
+  <!-- <section>
+    <style>
+    .dib-baseline { display: inline-block; width: 150px; height: 150px; border: 1px solid #cad5eb; background-color: #f0f3f9;line-height: 0; } 
+
+    </style>
+    x<span class="dib-baseline"></span> <span class="dib-baseline">x-baseline</span>
+  </section> -->
+  <!-- <section>
+    <style>
+      .box { text-align: justify; line-height: 0; } 
+    </style>
+    <div class="box"> 
+      <img src="1.png" width="96"> 
+      <img src="1.png" width="96"> 
+      <img src="1.png" width="96"> 
+      <img src="1.png" width="96"> x-baseline
+      <i class="justify-fix"></i> 
+      <i class="justify-fix">&nbsp;</i> 
+      <i class="justify-fix">&nbsp;</i> 
+    </div>
+  </section> -->
+  <!-- <p style='background:green;font-size: 100px;line-height: 200px;'>
+    <span style='background:red'>Ba</span>
+    <span style='background:yellow'>Ba</span>
+</p> -->
+  <!-- <div>
+    <span>xxx</span>
+    <div style='display: inline-block;height: 100px;width: 100px;background-color: bisque;'></div>
+  </div> -->
+  <!-- <div class='box'>
+    <style>
+      .box{
+        width: 200px;
+        margin-left: 100px;
+      }
+      img{
+        float: right;
+      }
+    </style>
+    <span>沃尔玛你的房间的框架房东方发动机防腐剂沃尔玛你的房间的框架房东方发动机防腐剂沃尔玛你的房间的框架房东方发动机防腐剂</span>
+    <img src="./1.png" alt="" width="100">
+  </div> -->
+  <!-- <div>
+    <style>
+      li { width: 20px; height: 20px; margin: 5px; float: left; clear: both;} li:nth-of-type(3) {  }
+    </style>
+    <ul>
+      <img style='float: left;' src="./1.png" alt="" width="100">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div> -->
+  <!-- <div style='height: 200px;overflow: auto;'>
+    <div style='height: 300px;overflow: auto;'>
+      <div style='height: 500px;background-color: bisque;'>
+      
+      </div>
+      <h1 id='x'>xxx</h1>
+    </div>
+  </div>
+  <a href="#x">xxx</a> -->
+  <!-- <style>
+    .box {
+    width: 20em;
+    height: 10em;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.list {
+    height: 100%;
+    background: #ddd;
+    text-align: center;
+    position: relative;
+}
+.list > input { 
+  position: absolute; top:0; 
+  height: 100%; width: 1px;
+  border:0; padding: 0; margin: 0;
+  clip: rect(0 0 0 0);
+}
+  </style> -->
+  <!-- <div class="box">
+    <div class="list" id="one">1</div>
+    <div class="list" id="two">2</div>
+    <div class="list" id="three">3</div>
+    <div class="list" id="four">4</div>
+</div>
+<div class="link">
+    <a class="click" href="#one">1</a>
+    <a class="click" href="#two">2</a>
+    <a class="click" href="#three">3</a>
+    <a class="click" href="#four">4</a>
+</div> -->
+  
+  <!-- <div class="box">
+    <div class="list"><input id="one" readonly>1</div>
+    <div class="list"><input id="two" readonly>2</div>
+    <div class="list"><input id="three" readonly>3</div>
+    <div class="list"><input id="four" readonly>4</div>
+</div>
+<div class="link">
+    <label class="click" for="one">1</label>
+    <label class="click" for="two">2</label>
+    <label class="click" for="three">3</label>
+    <label class="click" for="four">4</label>
+</div> -->
+<!-- <span style="position:relative;"> 我是<big style="font-size:200%;">字号很大</big>的文字！ </span> -->
+<!-- <input id="test"> <label class="placeholder">占位符</label> 
+<style>
+  .placeholder { position: absolute;}
+</style> -->
+<!-- <div style="width: 500px;height: 500px;margin:100px;background-color: bisque;">
+  <div>xx</div>
+  xxxx
+  <img src="./1.png" style='position: absolute;' width="100" height="100" alt="">
+<img src="./1.png" width="300" height="300" alt="">
+</div> -->
+
+  <!-- <div style='height: 300px;text-align: center;'>
+    xxxx
+  </div> -->
+  <!-- <div style="overflow: hidden;"> <img src="1.png" style="position: absolute;"> </div> -->
+  <!-- <div style="position: relative;"> 　<div style="overflow: hidden;"> 　　 <img src="1.png" style="position: absolute;"> 　</div> </div> -->
+  <!-- <div style="overflow: hidden; position: relative;"> <img src="1.png" style="position: absolute;">　 剪裁 </div> -->
+  <!-- <div style="overflow: hidden;"> <div style="position: relative;"> 　　 <img src="1.png" style="position: absolute;">　  </div> </div> -->
+  <!-- <div class="box"> <img src="1.png"> </div>
+  <style>
+    .box { width: 300px; height: 100px; background-color: #f0f3f9; overflow: auto; } .box > img { width: 256px; height: 192px; position: absolute; }
+  </style> -->
+  <!-- <div style='width: 200px;'>
+    <img src="./1.png" style='float:left;' alt="" width="100">
+    <div class='clear'>
+      xxxxxxxxxxx
+      xxxxxxxxxxx
+      xxxxxxxxxxx
+      xxxxxxxxxxx
+      xxxxxxxxxxx
+      xxxxxxxxxxx
+    </div>
+  </div>
+  <style>
+    .clear::after{
+      content:"."; 
+    display:block; 
+    height:0; 
+    visibility:hidden; 
+    clear:left;
+    }
+  </style> -->
+  <!-- <div class="father"> <img src="1.png"> 我是帅哥，好巧啊，我也是帅哥，原来看这本书的人都是帅哥~ </div> <div>虽然你很帅，但是我对你不感兴趣。</div>
+  <style>
+    .father:after { content: ''; display: table; clear: both; } .father img { float:left; width: 60px; height: 64px; } .father + div { margin-top: -2px; }
+  </style> -->
+  <style type="text/css">
+    .container{
+        margin: 30px auto;
+        width:600px;
+        height: 300px;
+    }
+    .p{
+        border:solid 3px #a33;
+    }
+    .c{
+        width: 100px;
+        height: 100px;
+        background-color: #060;
+        margin: 10px;
+        float: left;
+    }
+</style>
+<div class="container">
+  <div class="p">
+      <div class="c"></div>
+      <div class="c"></div>
+      <div class="c"></div>
+  </div>
+</div>
+<script>
+</script>
+</body>
+</html>
