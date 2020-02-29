@@ -18,7 +18,7 @@
         resources = PIXI.loader.resources,
         Sprite = PIXI.Sprite,
         TextureCache = PIXI.utils.TextureCache,
-        kobe
+        Kobe
    
     //Create a Pixi Application
     let app = new Application({
@@ -68,21 +68,25 @@
       .load(setupKobe);
     
     function setupKobe() {
-      let texture = TextureCache['kobe0019.png']
-      kobe = new Sprite(texture)
-      kobe.vx = 1
-      kobe.vy = 1
-      app.stage.addChild(kobe);
+      const frames = [];
 
-      app.ticker.add(delta => gameLoop(delta));
-    }
-
-    function gameLoop(delta){
-      //Apply the velocity values to the cat's
-      //position to make it move
-      kobe.x += kobe.vx;
-      kobe.y += kobe.vy;
+      for (let i = 1; i <= 37; i++) {
+          const val = i < 10 ? `0${i}` : i;
+          frames.push(PIXI.Texture.from(`kobe00${val}.png`));
       }
+      // create an AnimatedSprite (brings back memories from the days of Flash, right ?)
+      Kobe = new PIXI.AnimatedSprite(frames);
+      Kobe.animationSpeed = 0.4;
+      Kobe.interactive = true;
+      console.log(Kobe)
+      Kobe.onFrameChange = function (e) {
+        console.log(e)
+      }
+      app.stage.addChild(Kobe);
+      Kobe.gotoAndPlay(0)
+
+    }
+    
   </script>
 </body>
 </html>
