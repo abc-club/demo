@@ -143,7 +143,21 @@ list1.add(4)
 list1.add(5)
 list1.add(7)
 
-console.log(findLastK(list1.root, 2))
+var reverseList = function(head) {
+  var stack = []
+  var current = head
+  while(current) {
+      stack.unshift(current)
+      current = current.next
+  }
+  console.log(stack)
+  for(var i=0;i<stack.length;i++) {
+      if (stack[i+1]) stack[i].next = stack[i+1]
+  }
+  return stack[0]
+};
+
+console.log(reverseList(list1.root))
 
 // let list2 = new List()
 // list2.add(0)
