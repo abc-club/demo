@@ -11,5 +11,12 @@
       "program": "${workspaceRoot}/babel-plugin-demo/example.js",
       "runtimeExecutable": "node"
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "算法",
+      "program": "${workspaceRoot}/algorithms/index.js",
+      "runtimeExecutable": "node"
+    },
   ]
 }
