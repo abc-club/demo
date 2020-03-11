@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function jsonp(src) {
+      var scrpit = document.createElement('script')
+      scrpit.src= src
+      document.body.appendChild(scrpit)
+    }
+
+    function cb(result) {
+      console.log(result)
+    }
+
+    jsonp('http://xxx.com?callback=cb')
+
+  </script>
+</body>
+</html>
