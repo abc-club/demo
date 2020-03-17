@@ -14,8 +14,12 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: connect ENETUNREACH 172.31.255.254:443
-      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+  Error: https://registry.npmjs.org/angular: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:138128:19)
+      at ontimeout (timers.js:436:11)
+      at tryOnTimeout (timers.js:300:5)
+      at listOnTimeout (timers.js:263:5)
+      at Timer.processTimers (timers.js:223:10)
 
 npm manifest: 
   {
