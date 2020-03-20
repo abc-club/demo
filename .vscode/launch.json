@@ -17,6 +17,6 @@
       "name": "算法",
       "program": "${workspaceRoot}/algorithms/index.js",
       "runtimeExecutable": "node"
-    },
+    }
   ]
 }
