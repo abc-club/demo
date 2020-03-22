@@ -17,6 +17,29 @@
       "name": "算法",
       "program": "${workspaceRoot}/algorithms/index.js",
       "runtimeExecutable": "node"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "egg-bin",
+      "cwd": "${workspaceRoot}/egg-demo",
+      "program": "${workspaceRoot}/egg-demo/node_modules/egg-bin/bin/egg-bin.js",
+      "args": ["dev", "${workspaceRoot}/egg-demo", "--baseDir=${workspaceRoot}/egg-demo"],
+      "runtimeExecutable": "node"
+    },
+    {
+      "name": "Launch Egg",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/egg-demo",
+      "runtimeExecutable": "npm",
+      "windows": { "runtimeExecutable": "npm.cmd" },
+      "runtimeArgs": ["run", "debug"],
+      "console": "integratedTerminal",
+      "protocol": "auto",
+      "restart": true,
+      "port": 9229,
+      "autoAttachChildProcesses": true
     }
   ]
 }
