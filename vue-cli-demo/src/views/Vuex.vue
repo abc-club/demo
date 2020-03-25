@@ -4,6 +4,9 @@
     {{ count }} {{ doubleCount }} {{ sum(10) }}
     <p>{{ obj }}</p>
     <p>{{ arr }}</p>
+    <p>{{ a.count + 1 }}</p>
+    <!-- 严格模式下会报错，因为a会被这里修改 -->
+    <input type="text" v-model="obj.a" />
   </div>
 </template>
 
@@ -14,8 +17,11 @@ export default {
   data() {
     return {};
   },
+  created() {
+    console.log(this.$store.state.a);
+  },
   computed: {
-    ...mapState(['count', 'obj', 'arr']),
+    ...mapState(['count', 'obj', 'arr', 'a']),
     ...mapGetters(['doubleCount', 'sum']),
     // doubleCount() {
     //   return this.$store.getters.doubleCount;
@@ -29,6 +35,7 @@ export default {
     ...mapMutations(['increment', 'addProps', 'ADDARR']),
     ...mapActions(['incrementAsync', 'actionA', 'actionB']),
     handler() {
+      // 会同时执行外层和module里的increment
       this.increment({
         amount: 3,
       });
