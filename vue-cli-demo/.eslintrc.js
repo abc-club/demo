@@ -17,6 +17,8 @@ module.exports = {
     'no-param-reassign': 'off',
     'operator-linebreak': 'off',
     'prefer-template': 'off',
+    'no-unused-vars': 'off',
+    'no-alert': 'off',
   },
   overrides: [
     {
