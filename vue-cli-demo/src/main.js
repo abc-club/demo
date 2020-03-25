@@ -8,6 +8,17 @@ import './filters';
 
 Vue.config.productionTip = false;
 
+// store.commit('increment', {
+//   amount: 2,
+// });
+
+store.commit({
+  type: 'increment',
+  amount: 3,
+});
+
+console.log(store.state.count);
+
 new Vue({
   router,
   store,

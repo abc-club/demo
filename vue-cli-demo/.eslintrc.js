@@ -19,6 +19,8 @@ module.exports = {
     'prefer-template': 'off',
     'no-unused-vars': 'off',
     'no-alert': 'off',
+    'no-plusplus': 'off',
+    'object-curly-newline': 'off',
   },
   overrides: [
     {
