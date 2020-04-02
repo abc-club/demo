@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  </head>
+  <body>
+    <div id="like_button_container"></div>
+    <script>
+      // const e = React.createElement;
+      // class LikeButton extends React.Component {
+      //   constructor(props) {
+      //     super(props);
+      //     this.state = { liked: 'true' };
+      //   }
+      //   render() {
+      //     let { liked } = this.state;
+      //     return e('button', { onClick: () => this.setState({ liked: 'false' }) }, liked);
+      //   }
+      // }
+      // const domContainer = document.querySelector('#like_button_container');
+      // ReactDOM.render(e(LikeButton), domContainer);
+    </script>
+    <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      class LikeButton extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { liked: 'true' };
+        }
+        render() {
+          let { liked } = this.state;
+          return <button onClick={() => this.setState({ liked: 'false' })}>{liked}</button>;
+        }
+      }
+      const domContainer = document.querySelector('#like_button_container');
+      ReactDOM.render(<LikeButton />, domContainer);
+    </script> -->
+    <!-- 配合babel-preset使用
+    先跑npx babel --watch src --out-dir . --presets react-app/prod  -->
+    <script src="./like_button.js"></script>
+  </body>
+</html>
