@@ -8,6 +8,7 @@ import BuggyCounter from './components/BuggyCounter';
 import ContextComp from './components/ContextComp';
 import ForwardRef from './components/ForwardRef';
 import Fragments from './components/Fragments';
+import Chosen from './components/Chosen';
 
 const ref = React.createRef();
 
@@ -52,9 +53,14 @@ class App extends Component {
         {/* <ErrorBoundary>
           <BuggyCounter />
         </ErrorBoundary> */}
-        <ContextComp />
+        {/* <ContextComp />
         <ForwardRef ref={ref} />
-        <Fragments />
+        <Fragments /> */}
+        <Chosen onChange={(value) => console.log(value)}>
+          <option>vanilla</option>
+          <option>chocolate</option>
+          <option>strawberry</option>
+        </Chosen>
       </div>
     );
   }
