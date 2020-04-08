@@ -9,6 +9,7 @@ import ContextComp from './components/ContextComp';
 import ForwardRef from './components/ForwardRef';
 import Fragments from './components/Fragments';
 import Chosen from './components/Chosen';
+import VirtualizedList from './components/VirtualizedList';
 
 const ref = React.createRef();
 
@@ -56,11 +57,12 @@ class App extends Component {
         {/* <ContextComp />
         <ForwardRef ref={ref} />
         <Fragments /> */}
-        <Chosen onChange={(value) => console.log(value)}>
+        {/* <Chosen onChange={(value) => console.log(value)}>
           <option>vanilla</option>
           <option>chocolate</option>
           <option>strawberry</option>
-        </Chosen>
+        </Chosen> */}
+        <VirtualizedList />
       </div>
     );
   }
