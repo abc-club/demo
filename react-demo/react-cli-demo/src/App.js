@@ -13,6 +13,7 @@ import VirtualizedList from './components/VirtualizedList';
 import SCU from './components/SCU';
 // import PureComp from './components/PureComp';
 import PortalComp from './components/PortalComp';
+import RefComp from './components/RefComp';
 
 const ref = React.createRef();
 
@@ -68,7 +69,8 @@ class App extends Component {
         {/* <VirtualizedList /> */}
         {/* <SCU /> */}
         {/* <PureComp /> */}
-        <PortalComp />
+        {/* <PortalComp /> */}
+        <RefComp />
       </div>
     );
   }
