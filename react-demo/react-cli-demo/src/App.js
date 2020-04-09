@@ -10,6 +10,9 @@ import ForwardRef from './components/ForwardRef';
 import Fragments from './components/Fragments';
 import Chosen from './components/Chosen';
 import VirtualizedList from './components/VirtualizedList';
+import SCU from './components/SCU';
+// import PureComp from './components/PureComp';
+import PortalComp from './components/PortalComp';
 
 const ref = React.createRef();
 
@@ -62,7 +65,10 @@ class App extends Component {
           <option>chocolate</option>
           <option>strawberry</option>
         </Chosen> */}
-        <VirtualizedList />
+        {/* <VirtualizedList /> */}
+        {/* <SCU /> */}
+        {/* <PureComp /> */}
+        <PortalComp />
       </div>
     );
   }
