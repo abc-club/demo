@@ -16,6 +16,7 @@ import PortalComp from './components/PortalComp';
 import RefComp from './components/RefComp';
 import Counter from './components/hooks/Counter';
 import CounterCls from './components/hooks/CounterCls';
+import { ThemeContext, themes } from './context';
 
 const ref = React.createRef();
 
@@ -48,7 +49,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter />
+        <ThemeContext.Provider value={themes.dark}>
+          <Counter />
+        </ThemeContext.Provider>
+        <hr />
         <CounterCls />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
