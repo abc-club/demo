@@ -14,6 +14,8 @@ import SCU from './components/SCU';
 // import PureComp from './components/PureComp';
 import PortalComp from './components/PortalComp';
 import RefComp from './components/RefComp';
+import Counter from './components/hooks/Counter';
+import CounterCls from './components/hooks/CounterCls';
 
 const ref = React.createRef();
 
@@ -41,11 +43,13 @@ const ref = React.createRef();
 
 class App extends Component {
   componentDidMount() {
-    console.log(ref);
+    // console.log(ref);
   }
   render() {
     return (
       <div className="App">
+        <Counter />
+        <CounterCls />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -70,7 +74,7 @@ class App extends Component {
         {/* <SCU /> */}
         {/* <PureComp /> */}
         {/* <PortalComp /> */}
-        <RefComp />
+        {/* <RefComp /> */}
       </div>
     );
   }
