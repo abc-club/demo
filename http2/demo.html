@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浏览器判断是否开启了http2</title>
+  </head>
+  <body>
+    <img
+      style="border: 1px red solid;"
+      src="https://images.unsplash.com/photo-1584887731192-3627b67f2249?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+      alt=""
+    />
+    浏览器判断是否开启了http2
+    <script>
+      (function () {
+        if (window.chrome && chrome.loadTimes === 'function') {
+          var loadTimes = window.chrome.loadTimes();
+          var spdy = loadTimes.wasFetchedViaSpdy;
+          var info = loadTimes.npnNegotiatedProtocol || loadTimes.connectionInfo;
+          if (spdy && /^h2/i.test(info)) {
+            return console.log('本站点使用了http/2');
+          }
+        }
+        console.log('本站点没使用http/2');
+      })();
+    </script>
+  </body>
+</html>
