@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="a.js"></script>
+    <!-- <script src="b.js" ></script> -->
+    <!-- prefecth用于本页会用的脚本，会在network显示加载，但不会执行，preload用于下一页会用的脚本，不会再network出现 -->
+    <!-- 记忆点f在l前面 -->
+    <link rel="prefetch" href="b.js" />
+    <link rel="preload" href="c.js" />
+    <!-- <script src="c.js"></script> -->
+  </head>
+  <body>
+    content
+    <button onclick="loadScript('c.js')">load c.js</button>
+    <script>
+      function loadScript(name) {
+        var script = document.createElement('script');
+        script.src = name;
+        document.body.appendChild(script);
+      }
+    </script>
+  </body>
+</html>
