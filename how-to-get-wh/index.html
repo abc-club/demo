@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        /* border: 10px solid blue; */
+      }
+      .container {
+        width: 600px;
+        margin: 0 auto;
+      }
+      .imgbox {
+        width: 600px;
+        height: 300px;
+        background-color: #bbb;
+        margin: 1000px 50px 100px 80px;
+        padding: 10px 20px 30px 40px;
+        border: 5px solid red;
+        overflow: auto;
+      }
+      .imgbox img {
+        /* width: 100%; */
+        width: 660px;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="imgbox">
+        <img src="https://user-gold-cdn.xitu.io/2020/1/14/16fa30af939c81c4?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1" alt="" />
+      </div>
+    </div>
+    <script>
+      // https://juejin.im/post/5b0eb6146fb9a009f74bf1a5
+
+      // window
+      // console.log(window);
+      // console.log(window.innerHeight);
+      // console.log(window.outerHeight);
+      // console.log(window.innerWidth);
+      // console.log(window.outerWidth);
+      // console.log(window.screenX);
+      // console.log(window.screenY);
+      // console.log(window.scrollX);
+      // console.log(window.scrollY);
+
+      // console.log(window.screen);
+      // console.log(window.screen.availHeight);
+      // console.log(window.screen.height);
+
+      // console.log(window.document);
+      // console.log(window.document.elementFromPoint(0, 0));
+      // console.log(window.document.elementsFromPoint(0, 0));
+      // // console.log(window.document.caretPositionFromPoint(0, 0)); 不存在这个方法
+      // console.log(window.document.caretRangeFromPoint(0, 0));
+      // console.log(window.document.scrollingElement);
+      // console.log(window.document.body);
+      // console.log(window.document.documentElement);
+
+      // var html = window.document.documentElement;
+      // // TODOS: 不存在offset？？？
+      // console.log(html.offset);
+      // console.log(html.offsetParent); // null
+      // console.log(html.offsetLeft);
+      // console.log(html.offsetTop);
+      // console.log(html.offsetHeight);
+      // console.log(html.offsetWidth);
+
+      // var imgbox = document.querySelector('.imgbox');
+      // console.log(imgbox);
+      // console.log(imgbox.clientLeft);
+      // console.log(imgbox.clientTop);
+      // console.log(imgbox.clientWidth);
+      // console.log(imgbox.clientHeight);
+      // console.log(imgbox.scrollLeft);
+      // console.log(imgbox.scrollTop);
+      // console.log(imgbox.scrollWidth);
+      // console.log(imgbox.scrollHeight);
+
+      // console.log(imgbox.getClientRects());
+      // console.log(imgbox.getBoundingClientRect());
+
+      // var img = document.querySelector('img');
+      // console.log(img.x); // 屏幕坐标x
+      // console.log(img.y); // 屏幕坐标y
+
+      document.onclick = function (e) {
+        console.log(e);
+        console.log(e.screenX);
+        console.log(e.screenY);
+        console.log(e.pageX);
+        console.log(e.pageY);
+        console.log(e.clientX);
+        console.log(e.clientY);
+        console.log(e.x);
+        console.log(e.y);
+        console.log(e.offsetX);
+        console.log(e.offsetY);
+      };
+    </script>
+  </body>
+</html>
