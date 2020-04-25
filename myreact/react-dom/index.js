@@ -1,30 +1,64 @@
-// import { Component } from '../react';
+import { Component } from '../react';
 
-function render(vnode, container) {
-  if (!vnode) return;
+export function render(vnode, container) {
+  if (vnode === undefined || vnode === null || vnode === false) return;
+  let dom = update(vnode);
+
+  return container.appendChild(dom);
+}
+
+export function update(vnode) {
   let dom = vnode;
-
+  var nodetype = typeof vnode;
   // 如果vnode是string
-  if (typeof vnode === 'string') {
-    return container.appendChild(document.createTextNode(vnode));
+  if (nodetype === 'string' || nodetype === 'number' || vnode === true) {
+    return document.createTextNode(vnode);
   }
 
   let { tag, attrs, children } = vnode;
   // 如果是组件
+  let inst;
   if (typeof tag === 'function') {
-    // 类组件
-    if (tag.prototype && tag.prototype.render) {
-      let comp = new tag(attrs);
-      vnode = comp.render();
-    } else {
-      // 函数组件
-      vnode = tag(attrs);
-    }
+    var comp = createComponent(vnode);
+    return updateComponent(comp);
   }
+  return _render(vnode);
+}
 
-  // 这里vnode会更新
-  ({ tag, attrs, children } = vnode);
-  dom = document.createElement(tag);
+// 创建组件
+function createComponent(vnode) {
+  let { tag, attrs, children } = vnode;
+  // 类组件
+  let inst;
+  if (tag.prototype && tag.prototype.render) {
+    inst = new tag(attrs);
+  } else {
+    // 函数组件
+    inst = new Component();
+    inst.constructor = tag;
+    inst.render = function () {
+      return tag(attrs);
+    };
+  }
+  return inst;
+}
+
+// 更新组件
+export function updateComponent(comp) {
+  let vnode = comp.render();
+  let base = _render(vnode);
+
+  if (comp.base && comp.base.parentNode) {
+    comp.base.parentNode.replaceChild(base, comp.base);
+  }
+  comp.base = base;
+  return comp.base;
+}
+
+// 渲染
+function _render(vnode) {
+  let { tag, attrs, children } = vnode;
+  let dom = document.createElement(tag);
   // 处理attrs
   for (var k in attrs) {
     if (k === 'className') {
@@ -52,9 +86,10 @@ function render(vnode, container) {
       render(children[i], dom);
     }
   }
-  return container.appendChild(dom);
+  return dom;
 }
 
 export default {
   render,
+  updateComponent,
 };

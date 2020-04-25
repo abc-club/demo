@@ -1,3 +1,5 @@
+import { updateComponent } from '../react-dom';
+
 export function createElement(tag, attrs, ...children) {
   return {
     tag,
@@ -6,7 +8,16 @@ export function createElement(tag, attrs, ...children) {
   };
 }
 
-export class Component {}
+export class Component {
+  constructor(props) {
+    this.props = props;
+    this.state = {};
+  }
+  setState(changedState) {
+    this.state = Object.assign(this.state, changedState);
+    updateComponent(this);
+  }
+}
 
 export default {
   createElement,
