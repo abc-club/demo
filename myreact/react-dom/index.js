@@ -1,13 +1,13 @@
 import { Component } from '../react';
+import { diff, diffNode } from './diff';
 
-export function render(vnode, container) {
-  if (vnode === undefined || vnode === null || vnode === false) return;
-  let dom = update(vnode);
-
-  return container.appendChild(dom);
+export function render(vnode, container, dom) {
+  diff(dom, vnode, container);
+  // return container.appendChild(_render(vnode));
 }
 
-export function update(vnode) {
+export function _render(vnode) {
+  if (vnode === undefined || vnode === null || vnode === false) return;
   let dom = vnode;
   var nodetype = typeof vnode;
   // 如果vnode是string
@@ -22,11 +22,11 @@ export function update(vnode) {
     var comp = createComponent(vnode);
     return updateComponent(comp);
   }
-  return _render(vnode);
+  return updateAttribute(vnode);
 }
 
 // 创建组件
-function createComponent(vnode) {
+export function createComponent(vnode) {
   let { tag, attrs, children } = vnode;
   // 类组件
   let inst;
@@ -46,39 +46,20 @@ function createComponent(vnode) {
 // 更新组件
 export function updateComponent(comp) {
   let vnode = comp.render();
-  let base = _render(vnode);
-
-  if (comp.base && comp.base.parentNode) {
-    comp.base.parentNode.replaceChild(base, comp.base);
-  }
+  // let base = updateAttribute(vnode);
+  let base = diffNode(comp.base, vnode);
+  // if (comp.base && comp.base.parentNode) {
+  //   comp.base.parentNode.replaceChild(base, comp.base);
+  // }
   comp.base = base;
   return comp.base;
 }
 
 // 渲染
-function _render(vnode) {
+function updateAttribute(vnode) {
   let { tag, attrs, children } = vnode;
   let dom = document.createElement(tag);
-  // 处理attrs
-  for (var k in attrs) {
-    if (k === 'className') {
-      dom.setAttribute('class', attrs[k]);
-    } else if (/^on\w+/.test(k)) {
-      // 处理事件
-      dom[k.toLowerCase()] = attrs[k];
-    } else if (k === 'style') {
-      if (typeof attrs[k] === 'string') {
-        dom.style.cssText = attrs[k];
-      } else {
-        for (var ke in attrs[k]) {
-          if (typeof attrs[k][ke] === 'number') dom.style[ke] = attrs[k][ke] + 'px';
-          else dom.style[ke] = attrs[k][ke];
-        }
-      }
-    } else {
-      dom.setAttribute(k, attrs[k]);
-    }
-  }
+  setComponentProps(dom, attrs);
 
   // 处理子节点
   if (children && children.length > 0) {
@@ -87,6 +68,34 @@ function _render(vnode) {
     }
   }
   return dom;
+}
+
+export function setComponentProps(dom, attrs) {
+  // 处理attrs
+  for (var key in attrs) {
+    setAttribute(dom, key, attrs[key]);
+  }
+}
+
+// 处理attribute
+export function setAttribute(dom, key, value) {
+  if (key === 'className') {
+    dom.setAttribute('class', value);
+  } else if (/^on\w+/.test(key)) {
+    // 处理事件
+    dom[key.toLowerCase()] = value;
+  } else if (key === 'style') {
+    if (typeof value === 'string') {
+      dom.style.cssText = value;
+    } else {
+      for (var ke in value) {
+        if (typeof value[ke] === 'number') dom.style[ke] = value[ke] + 'px';
+        else dom.style[ke] = value[ke];
+      }
+    }
+  } else {
+    dom.setAttribute(key, value);
+  }
 }
 
 export default {

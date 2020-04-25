@@ -5,6 +5,7 @@ export function createElement(tag, attrs, ...children) {
     tag,
     attrs,
     children,
+    key: (attrs && attrs.key) || null,
   };
 }
 
