@@ -1,11 +1,29 @@
+// import { Component } from '../react';
+
 function render(vnode, container) {
   if (!vnode) return;
   let dom = vnode;
-  let { tag, attrs, children } = vnode;
 
+  // 如果vnode是string
   if (typeof vnode === 'string') {
     return container.appendChild(document.createTextNode(vnode));
   }
+
+  let { tag, attrs, children } = vnode;
+  // 如果是组件
+  if (typeof tag === 'function') {
+    // 类组件
+    if (tag.prototype && tag.prototype.render) {
+      let comp = new tag(attrs);
+      vnode = comp.render();
+    } else {
+      // 函数组件
+      vnode = tag(attrs);
+    }
+  }
+
+  // 这里vnode会更新
+  ({ tag, attrs, children } = vnode);
   dom = document.createElement(tag);
   // 处理attrs
   for (var k in attrs) {

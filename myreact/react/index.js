@@ -1,4 +1,4 @@
-function createElement(tag, attrs, ...children) {
+export function createElement(tag, attrs, ...children) {
   return {
     tag,
     attrs,
@@ -6,6 +6,9 @@ function createElement(tag, attrs, ...children) {
   };
 }
 
+export class Component {}
+
 export default {
   createElement,
+  Component,
 };

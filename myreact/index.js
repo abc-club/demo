@@ -8,24 +8,36 @@ const app = document.getElementById('app');
 function handler() {
   console.log('click');
 }
-const Home = (
-  <div className="p1 red" style={{ fontSize: 16, background: 'blue' }} key="1" onClick={handler}>
-    hello world
-    <p style="border: 1px solid red">child</p>
-  </div>
-);
+// const Home = (
+//   <div className="p1 red" style={{ fontSize: 16, background: 'blue' }} key="1" onClick={handler}>
+//     hello world
+//     <p style="border: 1px solid red">child</p>
+//   </div>
+// );
 
-console.log(Home);
-ReactDOM.render(Home, app);
+// console.log(Home);
+// ReactDOM.render(Home, app);
 
-// const Home = function (props) {
-//   return (
-//     <div className="p1 red" style={{ fontSize: 16, background: 'blue' }} key="1">
-//       hello world
-//       <p>child</p>
-//     </div>
-//   );
-// };
-// console.log(<Home />);
+const Home = function (props) {
+  return (
+    <div className="p1 red" style={{ fontSize: 16, background: 'blue' }} key="1" onClick={handler}>
+      hello world
+      <p style="border: 1px solid red">child</p>
+    </div>
+  );
+};
 
-// ReactDOM.render(<Home />, app);
+// class Home extends Component {
+//   render() {
+//     return (
+//       <div className="p1 red" style={{ fontSize: 16, background: 'blue' }} key="1" onClick={handler}>
+//         hello world
+//         <p style="border: 1px solid red">child</p>
+//       </div>
+//     );
+//   }
+// }
+
+console.log(<Home />);
+
+ReactDOM.render(<Home />, app);
