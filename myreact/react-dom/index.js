@@ -46,6 +46,7 @@ export function createComponent(vnode) {
 // 更新组件
 export function updateComponent(comp) {
   let vnode = comp.render();
+  console.log(vnode);
   // let base = updateAttribute(vnode);
   let base = diffNode(comp.base, vnode);
   // if (comp.base && comp.base.parentNode) {

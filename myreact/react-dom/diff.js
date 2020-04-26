@@ -89,7 +89,7 @@ function diffChildren(dom, vChildren) {
     let min = 0;
     let childrenLen = children.length;
     vChildren.forEach((vChild, i) => {
-      const key = vChild.key;
+      const key = typeof vChild === 'object' && vChild.key;
       let child;
       // 如果key存在，就从keyed里面找看看有没有
       if (key) {
@@ -123,6 +123,18 @@ function diffChildren(dom, vChildren) {
         } else {
           dom.insertBefore(child, f);
         }
+      }
+    });
+    // 删除多余的旧的节点
+    children.forEach((child) => {
+      if (child !== undefined && child.parentNode) {
+        child.parentNode.removeChild(child);
+      }
+    });
+    Object.keys(keyed).forEach((key) => {
+      let child = keyed[key];
+      if (child !== undefined && child.parentNode) {
+        child.parentNode.removeChild(child);
       }
     });
   }

@@ -32,6 +32,7 @@ class Home extends Component {
     super(props);
     this.state = {
       num: 0,
+      count: [1, 2, 3, 4, 5],
     };
   }
   // static getDerivedStateFromProps() {
@@ -44,6 +45,21 @@ class Home extends Component {
     });
   }
 
+  addCount() {
+    let count = [...this.state.count, this.state.num];
+
+    this.setState({
+      count,
+    });
+  }
+
+  delCount() {
+    let count = this.state.count.slice(1);
+
+    this.setState({
+      count,
+    });
+  }
   render() {
     return (
       <div className="p1 red" style={{ fontSize: 16, background: 'blue' }} key="1">
@@ -52,6 +68,13 @@ class Home extends Component {
         <p style="color: #ff0" onClick={this.addNum.bind(this)}>
           {this.state.num}
         </p>
+        <ul>
+          {this.state.count.map((item) => {
+            return <li key={item}>{item}</li>;
+          })}
+        </ul>
+        <button onClick={this.addCount.bind(this)}>addCount</button>
+        <button onClick={this.delCount.bind(this)}>delCount</button>
       </div>
     );
   }
