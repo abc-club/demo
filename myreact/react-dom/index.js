@@ -6,24 +6,24 @@ export function render(vnode, container, dom) {
   // return container.appendChild(_render(vnode));
 }
 
-export function _render(vnode) {
-  if (vnode === undefined || vnode === null || vnode === false) return;
-  let dom = vnode;
-  var nodetype = typeof vnode;
-  // 如果vnode是string
-  if (nodetype === 'string' || nodetype === 'number' || vnode === true) {
-    return document.createTextNode(vnode);
-  }
+// export function _render(vnode) {
+//   if (vnode === undefined || vnode === null || vnode === false) return;
+//   let dom = vnode;
+//   var nodetype = typeof vnode;
+//   // 如果vnode是string
+//   if (nodetype === 'string' || nodetype === 'number' || vnode === true) {
+//     return document.createTextNode(vnode);
+//   }
 
-  let { tag, attrs, children } = vnode;
-  // 如果是组件
-  let inst;
-  if (typeof tag === 'function') {
-    var comp = createComponent(vnode);
-    return updateComponent(comp);
-  }
-  return updateAttribute(vnode);
-}
+//   let { tag, attrs, children } = vnode;
+//   // 如果是组件
+//   let inst;
+//   if (typeof tag === 'function') {
+//     var comp = createComponent(vnode);
+//     return updateComponent(comp);
+//   }
+//   return updateAttribute(vnode);
+// }
 
 // 创建组件
 export function createComponent(vnode) {
