@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+// 我们玩点新的，惰性注册foo模块
+// import foo from './modules/foo';
 Vue.use(Vuex);
 
 // 假定我们有一个可以返回 Promise 的
 // 通用 API（请忽略此 API 具体实现细节）
-import { fetchItem } from './api';
+import { fetchItem } from '../api';
 
 export function createStore() {
   return new Vuex.Store({
@@ -16,7 +18,7 @@ export function createStore() {
       fetchItem({ commit }, id) {
         // `store.dispatch()` 会返回 Promise，
         // 以便我们能够知道数据在何时更新
-        return fetchItem(id).then(item => {
+        return fetchItem(id).then((item) => {
           commit('setItem', { id, item });
         });
       },
@@ -26,5 +28,8 @@ export function createStore() {
         Vue.set(state.items, id, item);
       },
     },
+    // modules: {
+    //   foo,
+    // },
   });
 }

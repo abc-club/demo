@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="a.js"></script>
     <!-- <script src="b.js" ></script> -->
-    <!-- prefecth用于本页会用的脚本，会在network显示加载，但不会执行，preload用于下一页会用的脚本，不会再network出现 -->
-    <!-- 记忆点f在l前面 -->
-    <link rel="prefetch" href="b.js" />
-    <link rel="preload" href="c.js" />
+    <!-- 错误的说法：❎prefecth用于本页会用的脚本，会在network显示加载，但不会执行，preload用于下一页会用的脚本，不会再network出现 -->
+    <!-- ✅一定要加as，会先加载preload->a->prefetch  与顺序无关 -->
+    <!-- 用于当前渲染的 chunk 会被资源预加载(preload) -->
+    <link rel="preload" href="load.js" as="script" />
+    <link rel="preload" href="a.js" as="script" />
+    <!-- 未用到的异步 chunk 会被数据预取(prefetch)（次要优先级） -->
+    <link rel="prefetch" href="fetch.js" as="script" />
     <!-- <script src="c.js"></script> -->
+    <script src="a.js"></script>
   </head>
   <body>
     content
-    <button onclick="loadScript('c.js')">load c.js</button>
+    <button onclick="loadScript('load.js')">load load.js</button>
     <script>
       function loadScript(name) {
         var script = document.createElement('script');

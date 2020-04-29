@@ -1,7 +1,7 @@
 // entry-server.js
 import { createApp } from './app';
 
-export default context => {
+export default (context) => {
   // 因为有可能会是异步路由钩子函数或组件，所以我们将返回一个 Promise，
   // 以便服务器能够等待所有的内容在渲染前，
   // 就已经准备就绪。
@@ -20,7 +20,7 @@ export default context => {
 
       // 对所有匹配的路由组件调用 `asyncData()`
       Promise.all(
-        matchedComponents.map(Component => {
+        matchedComponents.map((Component) => {
           if (Component.asyncData) {
             return Component.asyncData({
               store,
@@ -35,6 +35,7 @@ export default context => {
           // 当我们将状态附加到上下文，
           // 并且 `template` 选项用于 renderer 时，
           // 状态将自动序列化为 `window.__INITIAL_STATE__`，并注入 HTML。
+          // 此步骤由vue-server-renderer完成
           context.state = store.state;
 
           resolve(app);
