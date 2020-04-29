@@ -1,0 +1,18 @@
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+/* 特定的过渡动画 */
+.test-enter-active,
+.test-leave-active {
+  transition: transform 0.5s;
+}
+.test-enter,
+.test-leave-active {
+  transform: translateX(-100%);
+}

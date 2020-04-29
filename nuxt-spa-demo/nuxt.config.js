@@ -23,7 +23,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: ['element-ui/lib/theme-chalk/index.css', 'assets/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -56,5 +56,22 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      const index = routes.findIndex((route) => route.path === '/')
+      // console.log(routes, index)
+      routes[index] = {
+        ...routes[index],
+        components: {
+          default: routes[index].component,
+          top: resolve(__dirname, 'components/mainTop.vue')
+        },
+        chunkNames: {
+          top: 'components/mainTop'
+        }
+      }
+    }
   }
+  // middleware: 'userAgent'
 }

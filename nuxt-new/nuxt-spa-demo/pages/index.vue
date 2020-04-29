@@ -1,17 +1,19 @@
 <template>
   <div class="container">
-    <img src="/icon.png" alt="" />
-    <nuxt-link to="/routes">routes</nuxt-link>
-    <!-- <div>
+    <div>
       <logo />
       <h1 class="title">
         nuxt-spa-demo
       </h1>
       <h2 class="subtitle">
-        My shining Nuxt.js project
+        My best Nuxt.js project
       </h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
+        <a
+          href="https://nuxtjs.org/"
+          target="_blank"
+          class="button--green"
+        >
           Documentation
         </a>
         <a
@@ -22,22 +24,18 @@
           GitHub
         </a>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
 import Logo from '~/components/Logo.vue'
 
-export default Vue.extend({
+export default {
   components: {
     Logo
-  },
-  mounted() {
-    // sconsole.log(window.a.b)
   }
-})
+}
 </script>
 
 <style>
