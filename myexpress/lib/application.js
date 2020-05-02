@@ -2,6 +2,32 @@ const http = require('http');
 var Router = require('./router');
 var request = require('./request');
 var response = require('./response');
+var View = require('./view');
+
+function Application() {
+  this.settings = {};
+  this.engines = {};
+}
+
+Application.prototype.set = function (setting, val) {
+  if (arguments.length === 1) {
+    // app.get(setting)
+    return this.settings[setting];
+  }
+
+  this.settings[setting] = val;
+  return this;
+};
+
+Application.prototype.engine = function (ext, fn) {
+  // get file extension
+  var extension = ext[0] !== '.' ? '.' + ext : ext;
+
+  // store engine
+  this.engines[extension] = fn;
+
+  return this;
+};
 
 Application.prototype.lazyrouter = function () {
   if (!this._router) {
@@ -63,9 +89,36 @@ Application.prototype.use = function (fn) {
 http.METHODS.forEach(function (method) {
   method = method.toLowerCase();
   Application.prototype[method] = function (path, fn) {
+    if (method === 'get' && arguments.length === 1) {
+      // app.get(setting)
+      return this.set(path);
+    }
     this.lazyrouter();
     this._router[method].apply(this._router, arguments);
     return this;
   };
 });
+
+Application.prototype.render = function (name, options, callback) {
+  var done = callback;
+  var engines = this.engines;
+  var opts = options;
+
+  view = new View(name, {
+    defaultEngine: this.get('view engine'),
+    root: this.get('views'),
+    engines: engines,
+  });
+
+  if (!view.path) {
+    var err = new Error('Failed to lookup view "' + name + '"');
+    return done(err);
+  }
+
+  try {
+    view.render(options, callback);
+  } catch (e) {
+    callback(e);
+  }
+};
 exports = module.exports = Application;

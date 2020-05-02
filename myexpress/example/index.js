@@ -4,6 +4,13 @@ var router = express.Router();
 
 var app = express();
 
+//views, 放模板文件的目录
+app.set('views', './views');
+//view engine, 模板引擎
+app.set('view engine', 'jade');
+app.get('/', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' });
+});
 // app.use('/user', function (req, res, next) {
 //   console.log(req.url);
 //   console.log(req.baseUrl);

@@ -8,4 +8,25 @@ res.send = function (body) {
   });
   this.end(body);
 };
+
+res.render = function (view, options, callback) {
+  var app = this.req.app;
+  var done = callback;
+  var opts = options || {};
+  var self = this;
+
+  //如果定义回调，则返回，否则渲染
+  done =
+    done ||
+    function (err, str) {
+      if (err) {
+        return req.next(err);
+      }
+
+      self.send(str);
+    };
+
+  //渲染
+  app.render(view, opts, done);
+};
 module.exports = res;

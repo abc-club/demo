@@ -1,4 +1,4 @@
-const http = require('spdy'); // 若为http2则把'https'模块改为'spdy'模块
+const http = require('https'); // 若为http2则把'https'模块改为'spdy'模块
 const url = require('url');
 const fs = require('fs');
 const express = require('express');
@@ -7,8 +7,8 @@ const path = require('path');
 const app = express();
 
 const options = {
-  key: fs.readFileSync(`${__dirname}/密钥.pem`),
-  cert: fs.readFileSync(`${__dirname}/证书.pem`),
+  key: fs.readFileSync(`${__dirname}/cert.key`),
+  cert: fs.readFileSync(`${__dirname}/cert.pem`),
 };
 
 const allow = (res) => {
@@ -26,17 +26,13 @@ app.get('/option/?', (req, res) => {
   let size = req.query['size'];
   let delay = req.query['delay'];
   let buf = new Buffer(size * 1024 * 1024);
-  // setTimeout(() => {
-  //   res.send(buf.toString('utf8'));
-  // }, delay);
-
   setTimeout(() => {
-    res.send('done');
+    res.send(buf.toString('utf8'));
   }, delay);
 });
 
-http.createServer(options, app).listen(1002, (err) => {
+http.createServer(options, app).listen(1001, (err) => {
   // http2服务器端口为1002
   if (err) throw new Error(err);
-  console.log('Http2.x server listening on port 1002.');
+  console.log('Http1.x server listening on port 1001.');
 });
