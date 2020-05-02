@@ -40,6 +40,14 @@
       "restart": true,
       "port": 9229,
       "autoAttachChildProcesses": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "myexpress",
+      "cwd": "${workspaceRoot}/myexpress",
+      "program": "${workspaceRoot}/myexpress/example/index.js",
+      "runtimeExecutable": "node"
     }
   ]
 }

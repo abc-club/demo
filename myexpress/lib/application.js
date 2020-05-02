@@ -1,33 +1,66 @@
 const http = require('http');
-const router = [];
+var Router = require('./router');
 
-const app = {
-  get(path, fn) {
-    router.push({
-      path: path,
-      method: 'GET',
-      handle: fn,
-    });
-  },
-  listen() {
-    var server = http.createServer(function (req, res) {
-      if (!res.send) {
-        res.send = function (body) {
-          res.writeHead(200, {
-            'Content-Type': 'text/plain',
-          });
-          res.end(body);
-        };
-      }
-      for (var i = 1, len = router.length; i < len; i++) {
-        if ((req.url === router[i].path || router[i].path === '*') && (req.method === router[i].method || router[i].method === '*')) {
-          return router[i].handle && router[i].handle(req, res);
-        }
-      }
-      return router[0].handle && router[0].handle(req, res);
-    });
-    return server.listen.apply(server, arguments);
-  },
+function Application() {
+  this._router = new Router();
+}
+
+Application.prototype.listen = function (port, cb) {
+  var self = this;
+
+  var server = http.createServer(function (req, res) {
+    self.handle(req, res);
+  });
+
+  return server.listen.apply(server, arguments);
 };
 
-exports = module.exports = app;
+Application.prototype.handle = function (req, res) {
+  if (!res.send) {
+    res.send = function (body) {
+      res.writeHead(200, {
+        'Content-Type': 'text/plain',
+      });
+      res.end(body);
+    };
+  }
+  var done = function finalhandler(err) {
+    res.writeHead(404, {
+      'Content-Type': 'text/plain',
+    });
+
+    if (err) {
+      res.end('404: ' + err);
+    } else {
+      var msg = 'Cannot ' + req.method + ' ' + req.url;
+      res.end(msg);
+    }
+  };
+
+  var router = this._router;
+  router.handle(req, res, done);
+};
+
+Application.prototype.use = function (fn) {
+  var path = '/',
+    router = this._router;
+
+  //路径挂载
+  if (typeof fn !== 'function') {
+    path = fn;
+    fn = arguments[1];
+  }
+
+  router.use(path, fn);
+
+  return this;
+};
+
+http.METHODS.forEach(function (method) {
+  method = method.toLowerCase();
+  Application.prototype[method] = function (path, fn) {
+    this._router[method].apply(this._router, arguments);
+    return this;
+  };
+});
+exports = module.exports = Application;
