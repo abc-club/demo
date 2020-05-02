@@ -1,9 +1,15 @@
 const http = require('http');
 var Router = require('./router');
+var request = require('./request');
+var response = require('./response');
 
-function Application() {
-  this._router = new Router();
-}
+Application.prototype.lazyrouter = function () {
+  if (!this._router) {
+    this._router = new Router();
+
+    this._router.use(middleware.init(this));
+  }
+};
 
 Application.prototype.listen = function (port, cb) {
   var self = this;
@@ -16,14 +22,6 @@ Application.prototype.listen = function (port, cb) {
 };
 
 Application.prototype.handle = function (req, res) {
-  if (!res.send) {
-    res.send = function (body) {
-      res.writeHead(200, {
-        'Content-Type': 'text/plain',
-      });
-      res.end(body);
-    };
-  }
   var done = function finalhandler(err) {
     res.writeHead(404, {
       'Content-Type': 'text/plain',
@@ -36,12 +34,18 @@ Application.prototype.handle = function (req, res) {
       res.end(msg);
     }
   };
-
+  // 这里无需调用lazyrouter，因为listen前一定调用了.use或者.METHODS方法。
+  // 如果二者都没有调用，没有必要创建路由系统。this._router为undefined。
   var router = this._router;
-  router.handle(req, res, done);
+  if (router) {
+    router.handle(req, res, done);
+  } else {
+    done();
+  }
 };
 
 Application.prototype.use = function (fn) {
+  this.lazyrouter();
   var path = '/',
     router = this._router;
 
@@ -59,6 +63,7 @@ Application.prototype.use = function (fn) {
 http.METHODS.forEach(function (method) {
   method = method.toLowerCase();
   Application.prototype[method] = function (path, fn) {
+    this.lazyrouter();
     this._router[method].apply(this._router, arguments);
     return this;
   };
