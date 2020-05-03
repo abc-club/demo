@@ -58,30 +58,39 @@
 // let p = Promise.resolve(1)
 // console.log(p)
 
-
 ///////////////
 
-function request(filename) {
-  return new Promise((resolve, reject) => {
-    setTimeout(()=> {
-      console.log(filename)
-      resolve(filename)
-    }, Math.random()*500)
-  })
-}
-// 方法一
+// function request(filename) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(()=> {
+//       console.log(filename)
+//       resolve(filename)
+//     }, Math.random()*500)
+//   })
+// }
+// // 方法一
+// // async function a() {
+// //   let docs = ['A','B','C']
+// //   let promises = docs.map(filename=>request(filename))
+// //   for(var promise of promises) {
+// //     await promise
+// //   }
+// // }
+// // 方法二
 // async function a() {
 //   let docs = ['A','B','C']
 //   let promises = docs.map(filename=>request(filename))
-//   for(var promise of promises) {
-//     await promise
-//   }
+//   await Promise.all(promises)
 // }
-// 方法二
-async function a() {
-  let docs = ['A','B','C']
-  let promises = docs.map(filename=>request(filename))
-  await Promise.all(promises)
+
+// a().then(res=> res)
+
+async function f() {
+  await Promise.resolve('出错了');
+  console.log('111');
+  return 22;
 }
 
-a().then(res=> res)
+f()
+  .then((v) => console.log(v))
+  .catch((e) => console.log(e));
