@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="press">click me</button>
+    <script>
+      const cat = {
+        lives: 9,
+        jumps: () => {
+          return this.lives--;
+        },
+      };
+      console.log(cat.jumps()); // NaN
+
+      var button = document.getElementById('press');
+      // error this指向window
+      // button.addEventListener('click', () => {
+      //   this.classList.toggle('on');
+      // });
+      button.addEventListener('click', function () {
+        this.classList.toggle('on');
+      });
+    </script>
+  </body>
+</html>
