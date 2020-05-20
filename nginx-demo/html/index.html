@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/main.js"></script>
+  </head>
+  <body>
+    index
+    <script>
+      var xhr = new XMLHttpRequest();
+      // xhr.open('GET', 'https://www.igola.com/web-gateway/api-cms/lang-list/ZH?project=pc-v2');
+      // xhr.open('GET', '/igola/web-gateway/api-cms/lang-list/ZH?project=pc-v2');
+      // xhr.open('GET', 'https://xiaoce-discount-storage-api-ms.juejin.im/v1/getNewUserDiscountTicketDetail?uid=&client_id=&token=&src=web');
+      xhr.open('GET', '/juejin/v1/getNewUserDiscountTicketDetail?uid=&client_id=&token=&src=web');
+      // xhr.open('GET', '/aa/v1/getNewUserDiscountTicketDetail?uid=&client_id=&token=&src=web');
+
+      xhr.onreadystatechange = function () {
+        console.log(this.status);
+        if (this.readyState != 4) return;
+        if (this.status === 200) console.log(this.response);
+        else throw new Error(this.statusText);
+      };
+      xhr.responseType = 'json';
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.send();
+    </script>
+  </body>
+</html>
