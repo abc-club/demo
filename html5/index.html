@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 1.HTML5 新元素 -->
+  <header>
+    <nav>nav1</nav>
+      <nav>nav2</nav>
+      <nav>nav3</nav>
+  </header>
+  <article>
+    <aside>
+      <nav>nav1</nav>
+      <nav>nav2</nav>
+      <nav>nav3</nav>
+    </aside>
+    <section>
+      1
+    </section>
+    <section>
+      2
+    </section>
+    <section>
+      3
+    </section>
+  </article>
+  <footer>
+    xxxxxx
+  </footer>
+  <!-- 2.HTML5 Canvas -->
+  <canvas id="myCanvas" width="200" height="100"></canvas>
+  <script>
+    var c = document.getElementById('myCanvas')
+    var ctx = c.getContext('2d')
+    ctx.fillStyle = '#FF0000'
+    ctx.fillRect(0,0,150,75);
+  </script>
+  <!-- 3.HTML5 拖放 -->
+  <div  style='width:100px;height:100px;background:#f00;' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  <p id='drag1' draggable="true" ondragstart="drag(event)">drag me</p>
+  <script>
+    function drag(event) {
+      console.log(event.target.id)
+      event.dataTransfer.setData("Text",event.target.id)
+    }
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    function drop(event) {
+      console.log(2)
+      var id = event.dataTransfer.getData("Text")
+      console.log(id)
+      event.target.appendChild(document.getElementById(id))
+      event.preventDefault()
+    }
+  </script>
+  <!-- 4.HTML5 地理定位 -->
+  <div id='demo'></div>
+  <script>
+    var x=document.getElementById("demo");
+    function getLocation() {
+      if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      } else{x.innerHTML="该浏览器不支持获取地理位置。";}
+    }
+    function showPosition(position) {
+      x.innerHTML="Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+    }
+    getLocation()
+    
+    </script>
+</body>
+</html>

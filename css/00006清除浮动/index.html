@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <style>
+    .container{
+      border: red solid 1px;
+    }
+    .float{
+      float: left;
+    }
+    .clear{
+      *zoom:1;
+      /* clear: both; */
+    }
+    .clear:after{
+      content: '';
+      display:table;
+      clear: both;
+    }
+  </style>
+  <div class='container clear'>
+    <p class='float '>pppp</p>
+  </div>
+
+  <!-- BFC -->
+  <div class="container" style="float:left;">
+    <p class='float '>pppp</p>
+  </div>
+  <div class="container" style="position: absolute;top: 500px;">
+    <p class='float '>pppp</p>
+  </div>
+  <div class="container" style="overflow: hidden;">
+    <p class='float '>pppp</p>
+  </div>
+  <div class="container" style="display: inline-block;">
+    <p class='float '>pppp</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @keyframes mymove {
+        from {
+          left: 0px;
+        }
+        to {
+          left: 100px;
+        }
+      }
+      .infinite {
+        position: absolute;
+        animation: mymove 2s infinite alternate ease-in-out 1s;
+      }
+      #js {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="infinite">css</p>
+    <p id="js">jjj</p>
+    <script>
+      var node = document.getElementById('js');
+      function move(node, left) {
+        node.style.left = left + 'px';
+      }
+      // duration是以s为单位
+      function start(from, to, duration, isInfinite) {
+        var starttime = new Date().getTime();
+        var speed = (to - from) / duration;
+        function mymove() {
+          var nowtime = new Date().getTime();
+          var left = ((nowtime - starttime) / 1000) * speed + from;
+          if (left > to) {
+            if (!isInfinite) return;
+            else {
+              left = left % to
+            }
+          }
+          move(node, left);
+          requestAnimationFrame(mymove);
+        }
+        mymove();
+      }
+      start(0, 100, 2, true);
+    </script>
+  </body>
+</html>

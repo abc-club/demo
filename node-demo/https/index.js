@@ -9,6 +9,11 @@ const options = {
 };
 
 var server = https.createServer(options, (req, res) => {
-  res.end('hello');
+  // res.end('hello');
+  res.writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' });
+  fs.readFile('./index.html', (err, data) => {
+    console.log(data);
+    res.end(data);
+  });
 });
 server.listen(8000);
