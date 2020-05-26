@@ -14,8 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.npmjs.org
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+  Error: write EPIPE
+      at afterWriteDispatched (internal/stream_base_commons.js:154:25)
+      at writeGeneric (internal/stream_base_commons.js:145:3)
+      at Socket._writeGeneric (net.js:780:11)
+      at Socket._write (net.js:792:8)
+      at doWrite (_stream_writable.js:441:12)
+      at writeOrBuffer (_stream_writable.js:425:5)
+      at Socket.Writable.write (_stream_writable.js:316:11)
+      at JSONReporter._dump (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:50501:12)
+      at JSONReporter.info (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:50553:10)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:81525:16)
 
 npm manifest: 
   {

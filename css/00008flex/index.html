@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .container{
+      display: flex;
+      height: 300px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      /* 这个是单个垂直方向上的布局 */
+      /* align-items: baseline; */
+      /* 这个是垂直方向整体的布局，与justify-content对标 */
+      /* align-content:center; */  
+      background-color: blue;
+    }
+    .item{
+      width: 200px;
+      /* height: 200px; */
+      background-color: antiquewhite;
+      margin: 10px;
+      overflow: hidden;
+      word-break: break-all;
+    }
+  </style>
+  <div class='container'>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">1010101010101010101010101010101010</div>
+    <div class="item">11</div>
+  </div>
+</body>
+</html>
