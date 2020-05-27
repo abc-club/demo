@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    /* 基础样式 */
     .md-warp{
         width: 400px;
         height: 300px;
@@ -17,31 +18,32 @@
         height: 100px;
         background: #f00;
     }
+
+   
+  </style>
+  <!-- <style>
+    /* 方法一： */
+    /* 水平居中 */
+     .md-main{
+        margin: 0 auto;
+    }
+  </style> -->
+  <style>
+    /* 方法一： */
+    /* 水平居中 */
     .md-warp{
-    font-size: 0;
-  }
-  /* 注意这里用到了ifc */
-.md-warp:after{
-  content:'';
-  display:inline-block;
-  width: 0;
-  height:100%;
-  vertical-align:middle;
-}
-
-.md-main{
-  display:inline-block;
-  vertical-align:middle;
-  font-size: 14px;
-}
-
-
+        position: relative;
+    }
+    .md-main{
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+    }
   </style>
 </head>
 <body>
-  <!-- 实现水平垂直居中 -->
   <div class="md-warp">
-    <span class="md-main">aaaa</span>
+    <span class="md-main"></span>
   </div>
 </body>
 </html>

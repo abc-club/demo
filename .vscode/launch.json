@@ -48,6 +48,14 @@
       "cwd": "${workspaceRoot}/myexpress",
       "program": "${workspaceRoot}/myexpress/example/index.js",
       "runtimeExecutable": "node"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "cookie",
+      "cwd": "${workspaceRoot}/cookie",
+      "program": "${workspaceRoot}/cookie/index.js",
+      "runtimeExecutable": "node"
     }
   ]
 }
