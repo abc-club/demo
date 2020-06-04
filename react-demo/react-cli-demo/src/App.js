@@ -45,13 +45,14 @@ const ref = React.createRef();
 class App extends Component {
   componentDidMount() {
     // console.log(ref);
+    ref.current.focus()
   }
   render() {
     return (
       <div className="App">
         
         <ThemeContext.Provider value={themes.dark}>
-          <Counter />
+          <Counter ref={ref}/>
         </ThemeContext.Provider>
         <hr />
         <CounterCls />

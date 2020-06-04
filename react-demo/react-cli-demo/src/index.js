@@ -18,7 +18,7 @@ const instance = ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
-          {/* <Route path="/" component={App} /> */}
+          <Route path="/" component={App} />
           <Route path="/todo/:filter" component={Todo} />
         </Switch>
       </Router>
