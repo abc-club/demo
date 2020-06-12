@@ -1,18 +1,23 @@
-super
+const http = require('http');
 
-superOptions
-extendOptions
-sealedOptions
+const server = http.createServer();
 
-                options use mixin cid extend component
-                directive
-                filter
+server.on('request', (req, res) => {
+  if(req.url === '/') {
+    res.setHeader('Content-Type', 'text/html; charset=utf8');
+    res.setHeader('Content-Length', 10);
+    res.setHeader('Transfer-Encoding', 'chunked');
+    res.write("<p>来啦</p>");
+    setTimeout(() => {
+      res.write("第一次传输<br/>");
+    }, 1000);
+    setTimeout(() => {
+      res.write("第二次传输");
+      res.end()
+    }, 2000);
+  }
+})
 
-
-util
-set
-delete
-nextTick
-observable
-version
-compile
+server.listen(8081, () => {
+  console.log("成功启动");
+})

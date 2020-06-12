@@ -44,7 +44,7 @@ const ref = React.createRef();
 
 class App extends Component {
   componentDidMount() {
-    // console.log(ref);
+    console.log('rrrrrrrrrr');
     ref.current.focus()
   }
   render() {

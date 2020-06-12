@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    span{
-
-    }
-
-  </style>
 </head>
 <body>
-  <p>
-    <span>1</span>
-    <span style='position:absolute'>2</span>
-    <span>3</span>
-    <span>4</span>
-  </p>
+  <button id='button1' onclick='mm()'>button1</button>
+  <script>
+    fetch('https://post-storage-api-ms.juejin.im/v1/getDetailData?uid=5b534e595188251b3950de48&device_id=1590682204726&token=eyJhY2Nlc3NfdG9rZW4iOiJ3TmxHd3BBWXBUeHZsRTF4IiwicmVmcmVzaF90b2tlbiI6Im9mMjFTcFlxV2lkM1I3QmciLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ%3D%3D&src=web&type=entry&postId=5cf765275188257c6b51775f')
+    .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
+  </script>
+  
 </body>
-</html>
+</html> 
