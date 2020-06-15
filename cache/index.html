@@ -9,5 +9,16 @@
   </head>
   <body>
     aaaa
+    <button onclick='clickme()'>click</button>
+    <script>
+      function clickme() {
+        let script = document.createElement('script')
+        script.setAttribute('src', './a.js')
+        let script1 = document.createElement('script')
+        script1.setAttribute('src', './a.js')
+        document.body.appendChild(script)
+        document.body.appendChild(script1)
+      }
+    </script>
   </body>
 </html>

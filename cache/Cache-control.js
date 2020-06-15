@@ -9,8 +9,8 @@ http
     console.log(pathname);
     let abs = path.join(__dirname, pathname);
     // res.setHeader('Cache-Control', 'no-store'); // 浏览器会发两次请求
-    // res.setHeader('Cache-Control', 'no-cache'); // 浏览器只会发一次请求
-    res.setHeader('Cache-Control', 'max-age=20');
+    res.setHeader('Cache-Control', 'no-cache'); // 浏览器只会发一次请求
+    // res.setHeader('Cache-Control', 'max-age=20');
     fs.stat(path.join(__dirname, pathname), (err, stat) => {
       if (err) {
         res.statusCode = 404;
