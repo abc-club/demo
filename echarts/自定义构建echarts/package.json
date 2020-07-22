@@ -1,0 +1,19 @@
+{
+  "name": "selfbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "echarts": "^4.8.0"
+  },
+  "devDependencies": {
+    "rollup": "^2.22.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}

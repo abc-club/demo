@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VCharts from 'v-charts'
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
@@ -11,6 +12,8 @@ Vue.config.productionTip = false;
 // store.commit('increment', {
 //   amount: 2,
 // });
+
+Vue.use(VCharts)
 
 store.commit({
   type: 'increment',
