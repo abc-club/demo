@@ -1,30 +1,21 @@
 Arguments: 
-  /Users/isaacho/.nvm/versions/node/v12.16.1/bin/node /usr/local/Cellar/yarn/1.9.4/libexec/bin/yarn.js outdated --json
+  /Users/bytedance/.nvm/versions/node/v12.18.2/bin/node /Users/bytedance/.nvm/versions/node/v12.18.2/bin/yarn outdated --json
 
 PATH: 
-  /Users/isaacho/Documents/ENV/activator-dist-1.3.12/bin:/usr/local/mongodb/bin:/Users/isaacho/Documents/ENV/apache-maven-3.6.3/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/bin:/usr/local/Cellar/mongodb/4.0.1/bin:/Users/isaacho/.nvm/versions/node/v12.16.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin:/Users/isaacho/Documents/Android/tools:/Users/isaacho/Documents/Android/platform-tools:/Users/isaacho/Documents/Android/build-tools:.:/Users/isaacho/Documents/application/flutter/bin
+  /bin:/usr/bin:/usr/local/bin:/Users/bytedance/.nvm/versions/node/v12.18.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/puppetlabs/bin:/usr/local/munki:/Library/Apple/usr/bin:/usr/local/go/bin:/users/bytedance/go/bin:/usr/local/mysql/bin:/usr/local/mysql/support-files:/Users/bytedance/Library/Android/sdk/tools:/Users/bytedance/Library/Android/sdk/tools/bin:/Users/bytedance/Library/Android/sdk/platform-tools:/Users/bytedance/Library/Android/sdk/emulator
 
 Yarn version: 
-  1.9.4
+  1.22.4
 
 Node version: 
-  12.16.1
+  12.18.2
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: write EPIPE
-      at afterWriteDispatched (internal/stream_base_commons.js:154:25)
-      at writeGeneric (internal/stream_base_commons.js:145:3)
-      at Socket._writeGeneric (net.js:780:11)
-      at Socket._write (net.js:792:8)
-      at doWrite (_stream_writable.js:441:12)
-      at writeOrBuffer (_stream_writable.js:425:5)
-      at Socket.Writable.write (_stream_writable.js:316:11)
-      at JSONReporter._dump (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:50501:12)
-      at JSONReporter.info (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:50553:10)
-      at Object.<anonymous> (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:81525:16)
+  Error: getaddrinfo ENOTFOUND bnpm.byted.org
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
 
 npm manifest: 
   {
