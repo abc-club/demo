@@ -62,7 +62,7 @@ denque@^1.4.1:
 
 fast-decode-uri-component@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.npmjs.org/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz#46f8b6c22b30ff7a81357d4f59abfae938202543"
+  resolved "https://registry.yarnpkg.com/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz#46f8b6c22b30ff7a81357d4f59abfae938202543"
 
 fast-deep-equal@^3.1.1:
   version "3.1.1"
@@ -120,8 +120,8 @@ fastq@^1.6.0:
     reusify "^1.0.4"
 
 find-my-way@^2.2.0:
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/find-my-way/-/find-my-way-2.2.2.tgz#0d119a6daa354e20d61591a850a112d424c5bc06"
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/find-my-way/-/find-my-way-2.2.5.tgz#86ce825266fa28cd962e538a45ec2aaa84c3d514"
   dependencies:
     fast-decode-uri-component "^1.0.0"
     safe-regex2 "^2.0.0"
@@ -258,7 +258,7 @@ resolve-from@^2.0.0:
 
 ret@~0.2.0:
   version "0.2.2"
-  resolved "https://registry.npmjs.org/ret/-/ret-0.2.2.tgz#b6861782a1f4762dce43402a71eb7a283f44573c"
+  resolved "https://registry.yarnpkg.com/ret/-/ret-0.2.2.tgz#b6861782a1f4762dce43402a71eb7a283f44573c"
 
 reusify@^1.0.2, reusify@^1.0.4:
   version "1.0.4"
@@ -278,7 +278,7 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
 
 safe-regex2@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/safe-regex2/-/safe-regex2-2.0.0.tgz#b287524c397c7a2994470367e0185e1916b1f5b9"
+  resolved "https://registry.yarnpkg.com/safe-regex2/-/safe-regex2-2.0.0.tgz#b287524c397c7a2994470367e0185e1916b1f5b9"
   dependencies:
     ret "~0.2.0"
 
@@ -294,7 +294,7 @@ secure-json-parse@^2.0.0:
 
 semver-store@^0.3.0:
   version "0.3.0"
-  resolved "https://registry.npmjs.org/semver-store/-/semver-store-0.3.0.tgz#ce602ff07df37080ec9f4fb40b29576547befbe9"
+  resolved "https://registry.yarnpkg.com/semver-store/-/semver-store-0.3.0.tgz#ce602ff07df37080ec9f4fb40b29576547befbe9"
 
 semver@^5.1.0:
   version "5.7.1"
